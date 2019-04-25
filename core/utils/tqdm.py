@@ -6,9 +6,12 @@ from tqdm import tqdm
 
 class TqdmFile(object):
     dummy_file = None
+
+    # 初始化dummy_file
     def __init__(self, dummy_file):
         self.dummy_file = dummy_file
 
+    # 写数据
     def write(self, x):
         if len(x.rstrip()) > 0:
             tqdm.write(x, file=self.dummy_file)

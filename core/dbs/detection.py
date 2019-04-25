@@ -2,21 +2,30 @@ import numpy as np
 
 from .base import BASE
 
+# 继承于BASE类
 class DETECTION(BASE):
+
+    # 只重写了初始化函数
     def __init__(self, db_config):
         super(DETECTION, self).__init__()
 
         # Configs for training
+
+        # 训练时参数[类别、一般的尺度、最小尺度、最大尺度、步长]
         self._configs["categories"]      = 80
         self._configs["rand_scales"]     = [1]
         self._configs["rand_scale_min"]  = 0.8
         self._configs["rand_scale_max"]  = 1.4
         self._configs["rand_scale_step"] = 0.2
 
+
+
         # Configs for both training and testing
+        # [输入尺寸、输出尺寸]
         self._configs["input_size"]      = [383, 383]
         self._configs["output_sizes"]    = [[96, 96], [48, 48], [24, 24], [12, 12]]
 
+        # [阈值]
         self._configs["score_threshold"] = 0.05
         self._configs["nms_threshold"]   = 0.7
         self._configs["max_per_set"]     = 40
