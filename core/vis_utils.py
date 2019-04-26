@@ -23,9 +23,12 @@ def draw_bboxes(image, bboxes, font_size=0.5, thresh=0.5, colors=None):
 
     image = image.copy()
     for cat_name in bboxes:
+        # 只要大于阈值就行
         keep_inds = bboxes[cat_name][:, -1] > thresh
+        # 这边是类型的尺寸
         cat_size  = cv2.getTextSize(cat_name, cv2.FONT_HERSHEY_SIMPLEX, font_size, 2)[0]
 
+        # 创建随机颜色
         if colors is None:
             color = np.random.random((3, )) * 0.6 + 0.4
             color = (color * 255).astype(np.int32).tolist()

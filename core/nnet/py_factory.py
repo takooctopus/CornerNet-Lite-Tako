@@ -10,6 +10,7 @@ torch.manual_seed(317)
 
 
 class Network(nn.Module):
+    # 初始化网络，导入模型和损失函数
     def __init__(self, model, loss):
         super(Network, self).__init__()
 
@@ -32,7 +33,7 @@ class DummyModule(nn.Module):
     def forward(self, *xs, **kwargs):
         return self.module(*xs, **kwargs)
 
-
+# 网络工厂
 class NetworkFactory(object):
     def __init__(self, system_config, model, distributed=False, gpu=None):
         super(NetworkFactory, self).__init__()

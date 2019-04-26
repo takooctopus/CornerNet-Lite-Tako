@@ -3,22 +3,27 @@ import torch.nn as nn
 
 from .utils import _tranpose_and_gather_feat
 
+# sigmoid函数，都知道是啥样子的吧
 def _sigmoid(x):
     return torch.clamp(x.sigmoid_(), min=1e-4, max=1-1e-4)
 
+# 
 def _ae_loss(tag0, tag1, mask):
+    # squeeze去掉numpy数组里的shape中为1的维度
     num  = mask.sum(dim=1, keepdim=True).float()
     tag0 = tag0.squeeze()
     tag1 = tag1.squeeze()
 
     tag_mean = (tag0 + tag1) / 2
 
+    # 返回方差/n，再求和[得，我们得到了方差和]
     tag0 = torch.pow(tag0 - tag_mean, 2) / (num + 1e-4)
     tag0 = tag0[mask].sum()
     tag1 = torch.pow(tag1 - tag_mean, 2) / (num + 1e-4)
     tag1 = tag1[mask].sum()
     pull = tag0 + tag1
 
+    # 在第2维上[我们0开始应该是1]上增加一个维度
     mask = mask.unsqueeze(1) + mask.unsqueeze(2)
     mask = mask.eq(2)
     num  = num.unsqueeze(2)
