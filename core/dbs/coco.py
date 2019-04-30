@@ -52,56 +52,82 @@ class COCO(DETECTION):
             'clock', 'vase', 'scissors', 'teddy bear', 'hair drier',
             'toothbrush'
         ]
-
+        # 里面放的(ind:类别,..) 最后类似(1:1,2:2,3:3,...)
         self._cls2coco = {ind + 1: coco_id for ind, coco_id in enumerate(self._coco_cls_ids)}
+        # 里面放的是图片 得了和上面反过来了 [类别id：index]
         self._coco2cls = {coco_id: cls_id for cls_id, coco_id in self._cls2coco.items()}
+        # 把class和名称一一对应起来了
         self._coco2name = {cls_id: cls_name for cls_id, cls_name in zip(self._coco_cls_ids, self._coco_cls_names)}
+        # 相似的 这里是 名称：class
         self._name2coco = {cls_name: cls_id for cls_name, cls_id in self._coco2name.items()}
 
         if split is not None:
             coco_dir = os.path.join(sys_config.data_dir, "coco")
-
+            # 这边应该是要读取的数据集
             self._split = {
                 "trainval": "trainval2014",
                 "minival": "minival2014",
                 "testdev": "testdev2017"
             }[split]
+
+            # 数据集路径和标签路径
             self._data_dir = os.path.join(coco_dir, "images", self._split)
             self._anno_file = os.path.join(coco_dir, "annotations", "instances_{}.json".format(self._split))
 
+            # 返回 [图片名称:[[5x1的检测图]数组]]  [图片名称:图片id]
             self._detections, self._eval_ids = self._load_coco_annos()
             self._image_ids = list(self._detections.keys())
             self._db_inds = np.arange(len(self._image_ids))
 
     def _load_coco_annos(self):
+        """
+        :return:detections, eval_ids
+
+        返回 [图片名称:[[5x1的检测图]数组]]  [图片名称:图片id]
+        """
         from pycocotools.coco import COCO
 
         coco = COCO(self._anno_file)
         self._coco = coco
 
+        # 获取class和图片id
+        # 当然getCatIds()函数可以指定catNms=[], supNms=[], catIds=[]，获取特定的名称
         class_ids = coco.getCatIds()
+        # 当然getImgIds()函数也可以指定imgIds=[], catIds=[] ，获取特定的图片数据的index列表[因为只返回keys()啊]
         image_ids = coco.getImgIds()
 
         eval_ids = {}
         detections = {}
+
+        # 根据上面的图片id依次载入图片
         for image_id in image_ids:
             image = coco.loadImgs(image_id)[0]
             dets = []
 
+            # 创建[图片名称:图片id]的列表
             eval_ids[image["file_name"]] = image_id
             for class_id in class_ids:
+                # 获取这一类下面的所有图片的标签数据的id列表
                 annotation_ids = coco.getAnnIds(imgIds=image["id"], catIds=class_id)
+                # 再读取这其中的额标签数据
                 annotations = coco.loadAnns(annotation_ids)
+                # 通过类别id来获取我们的定义的类index
                 category = self._coco2cls[class_id]
-                for annotation in annotations:
+                # 对标签数据进行遍历
+                for annotation in annotations
+                    # 现在det是一个[x1,y1,x2,y2,class]的5x1数组
                     det = annotation["bbox"] + [category]
+                    # 不晓得为啥要加
                     det[2] += det[0]
                     det[3] += det[1]
+                    # 添加到list里
                     dets.append(det)
-
+            # 获得图片名字
             file_name = image["file_name"]
+            # 如果列表为空就返回一个[0x5]的空数组
             if len(dets) == 0:
                 detections[file_name] = np.zeros((0, 5), dtype=np.float32)
+            # 反之就把特征数组对应给文件
             else:
                 detections[file_name] = np.array(dets, dtype=np.float32)
         return detections, eval_ids
@@ -115,6 +141,13 @@ class COCO(DETECTION):
         return os.path.join(self._data_dir, file_name)
 
     def detections(self, ind):
+        """
+        :param ind:
+        :return: self._detections[file_name].copy()
+
+        返回 [图片名称:[[5x1的检测图]数组]] 解除包装后的
+        即对应图片的 特征数组 [[5x1数据结构(两点坐标+类别)]]
+        """
         db_ind = self._db_inds[ind]
         file_name = self._image_ids[db_ind]
         return self._detections[file_name].copy()

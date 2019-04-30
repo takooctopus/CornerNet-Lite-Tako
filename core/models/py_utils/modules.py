@@ -1,33 +1,40 @@
 import torch
 import torch.nn as nn
 
+# 导入里面的残差、上采样、混合和解码的类
 from .utils import residual, upsample, merge, _decode
 
+# 创建残差层
 def _make_layer(inp_dim, out_dim, modules):
     layers  = [residual(inp_dim, out_dim)]
     layers += [residual(out_dim, out_dim) for _ in range(1, modules)]
     return nn.Sequential(*layers)
 
+# 不晓得为啥和上面是一样的
 def _make_layer_revr(inp_dim, out_dim, modules):
     layers  = [residual(inp_dim, inp_dim) for _ in range(modules - 1)]
     layers += [residual(inp_dim, out_dim)]
     return nn.Sequential(*layers)
 
+# 池化层
 def _make_pool_layer(dim):
     return nn.MaxPool2d(kernel_size=2, stride=2)
 
+# 上采样层
 def _make_unpool_layer(dim):
     return upsample(scale_factor=2)
 
+# 合并层
 def _make_merge_layer(dim):
     return merge()
 
+# 堆叠沙漏层[gh层的设计我们可以分成两个分辨率的分支，最后将其相加即可]
 class hg_module(nn.Module):
     def __init__(
-        self, n, dims, modules, make_up_layer=_make_layer,
-        make_pool_layer=_make_pool_layer, make_hg_layer=_make_layer,
-        make_low_layer=_make_layer, make_hg_layer_revr=_make_layer_revr,
-        make_unpool_layer=_make_unpool_layer, make_merge_layer=_make_merge_layer
+            self, n, dims, modules, make_up_layer=_make_layer,
+            make_pool_layer=_make_pool_layer, make_hg_layer=_make_layer,
+            make_low_layer=_make_layer, make_hg_layer_revr=_make_layer_revr,
+            make_unpool_layer=_make_unpool_layer, make_merge_layer=_make_merge_layer
     ):
         super(hg_module, self).__init__()
 
@@ -65,6 +72,7 @@ class hg_module(nn.Module):
         merg = self.merg(up1, up2)
         return merg
 
+# hg类，考虑上面设计了hg的模块，这里我们需要导入上面的模块
 class hg(nn.Module):
     def __init__(self, pre, hg_modules, cnvs, inters, cnvs_, inters_):
         super(hg, self).__init__()
@@ -92,6 +100,7 @@ class hg(nn.Module):
                 inter = self.inters[ind](inter)
         return cnvs
 
+# hg网络
 class hg_net(nn.Module):
     def __init__(
         self, hg, tl_modules, br_modules, tl_heats, br_heats, 
@@ -148,6 +157,7 @@ class hg_net(nn.Module):
             return self._train(*xs, **kwargs)
         return self._test(*xs, **kwargs)
 
+# 扫视模块
 class saccade_module(nn.Module):
     def __init__(
         self, n, dims, modules, make_up_layer=_make_layer,
@@ -185,6 +195,7 @@ class saccade_module(nn.Module):
         up1  = self.up1(x)
         max1 = self.max1(x)
         low1 = self.low1(max1)
+        # 这里和hg模块有所不同，这个在最小单元会给出一个新建列表
         if self.n > 1:
             low2, mergs = self.low2(low1)
         else:
@@ -192,9 +203,11 @@ class saccade_module(nn.Module):
         low3 = self.low3(low2)
         up2  = self.up2(low3)
         merg = self.merg(up1, up2)
+        # 上面的列表会装载所有的最终合并列表
         mergs.append(merg)
         return merg, mergs
 
+# 扫视类，包装了上面的扫视模块
 class saccade(nn.Module):
     def __init__(self, pre, hg_modules, cnvs, inters, cnvs_, inters_):
         super(saccade, self).__init__()
@@ -211,7 +224,10 @@ class saccade(nn.Module):
         inter = self.pre(x)
 
         cnvs  = []
+        # 多的atts
         atts  = []
+
+        # 按理来说这里hg_应该是一个模块类，直接使用能够相当于做一个网络配置
         for ind, (hg_, cnv_) in enumerate(zip(self.hgs, self.cnvs)):
             hg, ups = hg_(inter)
             cnv = cnv_(hg)
@@ -222,8 +238,10 @@ class saccade(nn.Module):
                 inter = self.inters_[ind](inter) + self.cnvs_[ind](cnv)
                 inter = nn.functional.relu_(inter)
                 inter = self.inters[ind](inter)
+        # 当然最后还是传递出去了，但是为什么这里最后的处理不需要了我还是有点不明白
         return cnvs, atts
 
+# 扫视网络，相比之前的hg多了两个参数att_modules和up_start
 class saccade_net(nn.Module):
     def __init__(
         self, hg, tl_modules, br_modules, tl_heats, br_heats, 
@@ -261,6 +279,7 @@ class saccade_net(nn.Module):
         br_tags    = [br_tag_(br_mod)  for br_tag_,  br_mod in zip(self.br_tags,  br_modules)]
         tl_offs    = [tl_off_(tl_mod)  for tl_off_,  tl_mod in zip(self.tl_offs,  tl_modules)]
         br_offs    = [br_off_(br_mod)  for br_off_,  br_mod in zip(self.br_offs,  br_modules)]
+        # 这儿也多了一个atts
         atts       = [[att_mod_(u) for att_mod_, u in zip(att_mods, up)] for att_mods, up in zip(self.att_modules, ups)]
         return [tl_heats, br_heats, tl_tags, br_tags, tl_offs, br_offs, atts]
 
@@ -269,6 +288,8 @@ class saccade_net(nn.Module):
         cnvs, ups = self.hg(image)
         ups = [up[self.up_start:] for up in ups]
 
+        # 反正默认是要走这一步的
+        # 为什么还要att_mod和sigmoid
         if not no_att:
             atts = [att_mod_(up) for att_mod_, up in zip(self.att_modules[-1], ups[-1])]
             atts = [torch.sigmoid(att) for att in atts]

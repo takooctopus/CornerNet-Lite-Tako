@@ -48,6 +48,7 @@ def _off_loss(off, gt_off, mask):
     off_loss = off_loss / (num + 1e-4)
     return off_loss
 
+# 焦点损失
 def _focal_loss_mask(preds, gt, mask):
     pos_inds = gt.eq(1)
     neg_inds = gt.lt(1)
@@ -99,10 +100,12 @@ def _focal_loss(preds, gt):
             loss = loss - (pos_loss + neg_loss) / num_pos
     return loss
 
+# 扫视的损失函数
 class CornerNet_Saccade_Loss(nn.Module):
     def __init__(self, pull_weight=1, push_weight=1, off_weight=1, focal_loss=_focal_loss_mask):
         super(CornerNet_Saccade_Loss, self).__init__()
 
+        # 这几个和原版没差
         self.pull_weight = pull_weight
         self.push_weight = push_weight
         self.off_weight  = off_weight
@@ -110,6 +113,7 @@ class CornerNet_Saccade_Loss(nn.Module):
         self.ae_loss     = _ae_loss
         self.off_loss    = _off_loss
 
+    # 多了一个atts
     def forward(self, outs, targets):
         tl_heats = outs[0]
         br_heats = outs[1]
@@ -117,6 +121,7 @@ class CornerNet_Saccade_Loss(nn.Module):
         br_tags  = outs[3]
         tl_offs  = outs[4]
         br_offs  = outs[5]
+        # 多了一个atts
         atts     = outs[6]
 
         gt_tl_heat  = targets[0]
@@ -126,6 +131,7 @@ class CornerNet_Saccade_Loss(nn.Module):
         gt_br_off   = targets[4]
         gt_tl_ind   = targets[5]
         gt_br_ind   = targets[6]
+        # 多的
         gt_tl_valid = targets[7]
         gt_br_valid = targets[8]
         gt_atts     = targets[9]
@@ -139,9 +145,11 @@ class CornerNet_Saccade_Loss(nn.Module):
         focal_loss += self.focal_loss(tl_heats, gt_tl_heat, gt_tl_valid)
         focal_loss += self.focal_loss(br_heats, gt_br_heat, gt_br_valid)
 
+        # 多的，对每一个都使用sigmoid函数，在通过mask取出大于的
         atts = [[_sigmoid(a) for a in att] for att in atts]
         atts = [[att[ind] for att in atts] for ind in range(len(gt_atts))]
 
+        # 计算att的损失时使用的简单相加
         att_loss = 0
         for att, gt_att in zip(atts, gt_atts):
             att_loss += _focal_loss(att, gt_att) / max(len(att), 1)
@@ -196,7 +204,7 @@ class CornerNet_Loss(nn.Module):
         gt_tl_ind   = targets[5]
         gt_br_ind   = targets[6]
 
-        # focal loss
+        # focal loss,函数就定义在这个py里的
         focal_loss = 0
 
         tl_heats = [_sigmoid(t) for t in tl_heats]

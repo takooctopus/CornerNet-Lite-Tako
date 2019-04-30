@@ -1,17 +1,23 @@
 import torch
 import torch.nn as nn
 
-# 获取特征函数
+
 def _gather_feat(feat, ind, mask=None):
-    # 维度？
-    dim  = feat.size(2)
-    ind  = ind.unsqueeze(2).expand(ind.size(0), ind.size(1), dim)
+    """
+        获取特征函数
+        @param 这里我们
+    """
+    # 维度[要是下面传过来的话是最后一个维度]的大小
+    dim = feat.size(2)
+    # index 也添加了最后的维度，再拓展到上面的dim的维度上
+    ind = ind.unsqueeze(2).expand(ind.size(0), ind.size(1), dim)
     feat = feat.gather(1, ind)
     if mask is not None:
         mask = mask.unsqueeze(2).expand_as(feat)
         feat = feat[mask]
         feat = feat.view(-1, dim)
     return feat
+
 
 # NMS——非极大值抑制
 def _nms(heat, kernel=1):
@@ -21,14 +27,17 @@ def _nms(heat, kernel=1):
     keep = (hmax == heat).float()
     return heat * keep
 
+
 # 传入的是tl_regr和ind 转置并获取特征
 def _tranpose_and_gather_feat(feat, ind):
-    # 暂时不晓得是啥
-    feat = feat.permute(0, 2, 3, 1).contiguous()
+    # permute将维度换位 contiguous用于整理内存，之后才能使用view[虽然现在能直接用reshape换位置了]
+    feat = feat.permute(0, 2, 3, 1).contiguous
+    # 重整了特征视图
     feat = feat.view(feat.size(0), -1, feat.size(3))
     # 看看获取的是啥特征吧
     feat = _gather_feat(feat, ind)
     return feat
+
 
 # 分治法
 def _topk(scores, K=20):
@@ -39,14 +48,15 @@ def _topk(scores, K=20):
     topk_clses = (topk_inds / (height * width)).int()
 
     topk_inds = topk_inds % (height * width)
-    topk_ys   = (topk_inds / width).int().float()
-    topk_xs   = (topk_inds % width).int().float()
+    topk_ys = (topk_inds / width).int().float()
+    topk_xs = (topk_inds % width).int().float()
     return topk_scores, topk_inds, topk_clses, topk_ys, topk_xs
+
 
 # 解码 话说这里tl可能代表左上角吧，那相对的br就是右下角
 def _decode(
-    tl_heat, br_heat, tl_tag, br_tag, tl_regr, br_regr, 
-    K=100, kernel=1, ae_threshold=1, num_dets=1000, no_border=False
+        tl_heat, br_heat, tl_tag, br_tag, tl_regr, br_regr,
+        K=100, kernel=1, ae_threshold=1, num_dets=1000, no_border=False
 ):
     batch, cat, height, width = tl_heat.size()
 
@@ -74,7 +84,7 @@ def _decode(
         tl_ys_binds = (tl_ys == 0)
         tl_xs_binds = (tl_xs == 0)
         br_ys_binds = (br_ys == height - 1)
-        br_xs_binds = (br_xs == width  - 1)
+        br_xs_binds = (br_xs == width - 1)
 
     # 这个可能是说有回归的情况
     if tl_regr is not None and br_regr is not None:
@@ -100,12 +110,12 @@ def _decode(
     br_tag = br_tag.view(batch, 1, K)
 
     # 这里对两个tag做差求绝对值了
-    dists  = torch.abs(tl_tag - br_tag)
+    dists = torch.abs(tl_tag - br_tag)
 
     # 将得分拓展到K,K的范围
     tl_scores = tl_scores.view(batch, K, 1).expand(batch, K, K)
     br_scores = br_scores.view(batch, 1, K).expand(batch, K, K)
-    scores    = (tl_scores + br_scores) / 2
+    scores = (tl_scores + br_scores) / 2
 
     # reject boxes based on classes
     # 这边要只取那些不一样的
@@ -119,7 +129,7 @@ def _decode(
 
     # reject boxes based on widths and heights
     # 右下点肯定要比左上点的右下一些吧
-    width_inds  = (br_xs < tl_xs)
+    width_inds = (br_xs < tl_xs)
     height_inds = (br_ys < tl_ys)
 
     # 没有边界的话，边界那边设成-1
@@ -129,9 +139,9 @@ def _decode(
         scores[br_ys_binds] = -1
         scores[br_xs_binds] = -1
 
-    scores[cls_inds]    = -1
-    scores[dist_inds]   = -1
-    scores[width_inds]  = -1
+    scores[cls_inds] = -1
+    scores[dist_inds] = -1
+    scores[width_inds] = -1
     scores[height_inds] = -1
 
     # 分数最后在整理一下，找到topK个最大的
@@ -143,8 +153,8 @@ def _decode(
     bboxes = bboxes.view(batch, -1, 4)
     bboxes = _gather_feat(bboxes, inds)
 
-    clses  = tl_clses.contiguous().view(batch, -1, 1)
-    clses  = _gather_feat(clses, inds).float()
+    clses = tl_clses.contiguous().view(batch, -1, 1)
+    clses = _gather_feat(clses, inds).float()
 
     tl_scores = tl_scores.contiguous().view(batch, -1, 1)
     tl_scores = _gather_feat(tl_scores, inds).float()
@@ -153,6 +163,7 @@ def _decode(
 
     detections = torch.cat([bboxes, scores, tl_scores, br_scores, clses], dim=2)
     return detections
+
 
 # 上采样
 class upsample(nn.Module):
@@ -163,10 +174,12 @@ class upsample(nn.Module):
     def forward(self, x):
         return nn.functional.interpolate(x, scale_factor=self.scale_factor)
 
+
 # 就是个加法
 class merge(nn.Module):
     def forward(self, x, y):
         return x + y
+
 
 # 卷积层
 class convolution(nn.Module):
@@ -175,14 +188,15 @@ class convolution(nn.Module):
 
         pad = (k - 1) // 2
         self.conv = nn.Conv2d(inp_dim, out_dim, (k, k), padding=(pad, pad), stride=(stride, stride), bias=not with_bn)
-        self.bn   = nn.BatchNorm2d(out_dim) if with_bn else nn.Sequential()
+        self.bn = nn.BatchNorm2d(out_dim) if with_bn else nn.Sequential()
         self.relu = nn.ReLU(inplace=True)
 
     def forward(self, x):
         conv = self.conv(x)
-        bn   = self.bn(conv)
+        bn = self.bn(conv)
         relu = self.relu(bn)
         return relu
+
 
 # 残差网络类
 class residual(nn.Module):
@@ -192,30 +206,31 @@ class residual(nn.Module):
         p = (k - 1) // 2
 
         self.conv1 = nn.Conv2d(inp_dim, out_dim, (k, k), padding=(p, p), stride=(stride, stride), bias=False)
-        self.bn1   = nn.BatchNorm2d(out_dim)
+        self.bn1 = nn.BatchNorm2d(out_dim)
         self.relu1 = nn.ReLU(inplace=True)
 
         self.conv2 = nn.Conv2d(out_dim, out_dim, (k, k), padding=(p, p), bias=False)
-        self.bn2   = nn.BatchNorm2d(out_dim)
-        
+        self.bn2 = nn.BatchNorm2d(out_dim)
+
         # 如果步长stride不为1，且输入维度和输出维度不同，我们就放一个残差网络在这
-        self.skip  = nn.Sequential(
+        self.skip = nn.Sequential(
             nn.Conv2d(inp_dim, out_dim, (1, 1), stride=(stride, stride), bias=False),
             nn.BatchNorm2d(out_dim)
         ) if stride != 1 or inp_dim != out_dim else nn.Sequential()
-        self.relu  = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU(inplace=True)
 
     # 依次进行下去就是了
     def forward(self, x):
         conv1 = self.conv1(x)
-        bn1   = self.bn1(conv1)
+        bn1 = self.bn1(conv1)
         relu1 = self.relu1(bn1)
 
         conv2 = self.conv2(relu1)
-        bn2   = self.bn2(conv2)
+        bn2 = self.bn2(conv2)
 
-        skip  = self.skip(x)
+        skip = self.skip(x)
         return self.relu(bn2 + skip)
+
 
 # corner的池化层[我觉得这可能就是他的改进之处了吧]
 class corner_pool(nn.Module):
@@ -230,11 +245,11 @@ class corner_pool(nn.Module):
 
         # 新建一卷积层，核是3x3，拓展了1
         self.p_conv1 = nn.Conv2d(128, dim, (3, 3), padding=(1, 1), bias=False)
-        self.p_bn1   = nn.BatchNorm2d(dim)
+        self.p_bn1 = nn.BatchNorm2d(dim)
 
         # 这个是核是1x1，就没得啥拓展的事情了
         self.conv1 = nn.Conv2d(dim, dim, (1, 1), bias=False)
-        self.bn1   = nn.BatchNorm2d(dim)
+        self.bn1 = nn.BatchNorm2d(dim)
         self.relu1 = nn.ReLU(inplace=True)
 
         # 又来了一个卷积层，为啥啊
@@ -245,23 +260,22 @@ class corner_pool(nn.Module):
         self.pool2 = pool2()
 
     def forward(self, x):
-        
-        # 这两个池化层分别先池化 
+        # 这两个池化层分别先池化
         # pool 1
         p1_conv1 = self.p1_conv1(x)
-        pool1    = self.pool1(p1_conv1)
+        pool1 = self.pool1(p1_conv1)
 
         # pool 2
         p2_conv1 = self.p2_conv1(x)
-        pool2    = self.pool2(p2_conv1)
+        pool2 = self.pool2(p2_conv1)
 
         # 然后我们把俩池化层加起来
         # pool 1 + pool 2
         p_conv1 = self.p_conv1(pool1 + pool2)
-        p_bn1   = self.p_bn1(p_conv1)
+        p_bn1 = self.p_bn1(p_conv1)
 
         conv1 = self.conv1(x)
-        bn1   = self.bn1(conv1)
+        bn1 = self.bn1(conv1)
         relu1 = self.relu1(p_bn1 + bn1)
 
         conv2 = self.conv2(relu1)

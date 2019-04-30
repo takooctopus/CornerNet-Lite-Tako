@@ -13,7 +13,7 @@ def make_pool_layer(dim):
     return nn.Sequential()
 
 
-# 做hg层 [看样子和残差有关]
+# 做hg层 [看样子和残差有关],modules是模块数目
 def make_hg_layer(inp_dim, out_dim, modules):
     layers = [residual(inp_dim, out_dim, stride=2)]
     layers += [residual(out_dim, out_dim) for _ in range(1, modules)]
@@ -36,23 +36,30 @@ class model(hg_net):
     def __init__(self):
         stacks = 2
         pre = nn.Sequential(
+            # 为啥卷积核选择7啊
             convolution(7, 3, 128, stride=2),
             residual(128, 256, stride=2)
         )
         hg_mods = nn.ModuleList([
             hg_module(
                 5, [256, 256, 384, 384, 384, 512], [2, 2, 2, 2, 2, 4],
+                # 这里初始化了一个空nn序列
                 make_pool_layer=make_pool_layer,
+                # 赋值上面的函数
                 make_hg_layer=make_hg_layer
             ) for _ in range(stacks)
         ])
+        # 依次出n个卷基层,n-1残差层
         cnvs = nn.ModuleList([convolution(3, 256, 256) for _ in range(stacks)])
         inters = nn.ModuleList([residual(256, 256) for _ in range(stacks - 1)])
+        # n-1 归一化层
         cnvs_ = nn.ModuleList([self._merge_mod() for _ in range(stacks - 1)])
         inters_ = nn.ModuleList([self._merge_mod() for _ in range(stacks - 1)])
 
+        # 上面几个模块我们依次放下来做forward
         hgs = hg(pre, hg_mods, cnvs, inters, cnvs_, inters_)
 
+        # 新建细节的模块[corner的池化层]
         tl_modules = nn.ModuleList([corner_pool(256, TopPool, LeftPool) for _ in range(stacks)])
         br_modules = nn.ModuleList([corner_pool(256, BottomPool, RightPool) for _ in range(stacks)])
 
