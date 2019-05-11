@@ -114,7 +114,7 @@ class COCO(DETECTION):
                 # 通过类别id来获取我们的定义的类index
                 category = self._coco2cls[class_id]
                 # 对标签数据进行遍历
-                for annotation in annotations
+                for annotation in annotations:
                     # 现在det是一个[x1,y1,x2,y2,class]的5x1数组
                     det = annotation["bbox"] + [category]
                     # 不晓得为啥要加
