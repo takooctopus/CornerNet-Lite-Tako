@@ -258,6 +258,9 @@ def cornernet_saccade(system_configs, db, k_ind, data_aug, debug):
         image_path = db.image_path(db_ind)
         image = cv2.imread(image_path)
 
+        # print(image_path)
+        # print(image)
+
         # 对应图片的 特征数组 [[5x1数据结构(两点坐标+类别)]]
         orig_detections = db.detections(db_ind)
         # 获取有多少条detection数据

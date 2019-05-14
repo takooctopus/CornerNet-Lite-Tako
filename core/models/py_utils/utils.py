@@ -31,7 +31,7 @@ def _nms(heat, kernel=1):
 # 传入的是tl_regr和ind 转置并获取特征
 def _tranpose_and_gather_feat(feat, ind):
     # permute将维度换位 contiguous用于整理内存，之后才能使用view[虽然现在能直接用reshape换位置了]
-    feat = feat.permute(0, 2, 3, 1).contiguous
+    feat = feat.permute(0, 2, 3, 1).contiguous()
     # 重整了特征视图
     feat = feat.view(feat.size(0), -1, feat.size(3))
     # 看看获取的是啥特征吧

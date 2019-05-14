@@ -1,6 +1,6 @@
 {
     "system": {
-        "dataset": "COCO",
+        "dataset": "DAGM",
         "batch_size": 55,
         "sampling_function": "cornernet",
 

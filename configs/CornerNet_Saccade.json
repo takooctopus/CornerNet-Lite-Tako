@@ -1,11 +1,11 @@
 {
     "system": {
-        "dataset": "COCO",
+        "dataset": "DAGM",
         "batch_size": 48,
         "sampling_function": "cornernet_saccade",
 
-        "train_split": "trainval",
-        "val_split": "minival",
+        "train_split": "traindagm",
+        "val_split": "testdagm",
 
         "learning_rate": 0.00025,
         "decay_rate": 10,
@@ -15,9 +15,9 @@
         "opt_algo": "adam",
         "prefetch_size": 5,
 
-        "max_iter": 500000,
-        "stepsize": 450000,
-        "snapshot": 5000,
+        "max_iter": 5000,
+        "stepsize": 200,
+        "snapshot": 100,
 
         "chunk_sizes": [12, 12, 12, 12]
     },
