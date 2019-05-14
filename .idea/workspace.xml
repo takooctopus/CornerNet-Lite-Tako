@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b6455ff-cfd2-4ea3-9fcf-6f8060cc40a4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pydagmfoo.py" beforeDir="false" afterPath="$PROJECT_DIR$/pydagmfoo.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,32 +31,61 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagmjson.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
-              <folding>
-                <element signature="e#28#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pydagmfoo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-              <folding>
-                <element signature="e#23#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagm.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="460">
+                  <caret line="412" column="32" lean-forward="true" selection-start-line="412" selection-start-column="32" selection-end-line="412" selection-end-column="32" />
+                  <folding>
+                    <element signature="e#313#324#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/data/coco/PythonAPI/pycocotools/coco.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="354">
+                  <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+                  <folding>
+                    <element signature="e#2404#2415#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/data/coco/PythonAPI/pycocotools/mask.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="30">
+                  <caret line="2" selection-start-line="2" selection-end-line="3" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/pydagmfoo.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="360">
+                  <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+                  <folding>
+                    <element signature="e#23#32#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -88,6 +118,8 @@
       <find>is</find>
       <find>j</find>
       <find>j.</find>
+      <find>COCO</find>
+      <find>unicode</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,7 +155,6 @@
         <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/mask.py" />
         <option value="$PROJECT_DIR$/data/dagm/.travis.yml" />
         <option value="$PROJECT_DIR$/data/dagm/.gitignore" />
-        <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagm.py" />
         <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagmeval.py" />
         <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmfoo.py" />
         <option value="$PROJECT_DIR$/data/dagm/annotations/minival2014foo.json" />
@@ -132,6 +163,7 @@
         <option value="$PROJECT_DIR$/demo.py" />
         <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagmjson.py" />
         <option value="$PROJECT_DIR$/pydagmfoo.py" />
+        <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagm.py" />
       </list>
     </option>
   </component>
@@ -159,6 +191,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -181,7 +214,29 @@
               <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
               <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="coco" type="462c0819:PsiDirectoryNode" />
+              <item name="PythonAPI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="coco" type="462c0819:PsiDirectoryNode" />
+              <item name="PythonAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="pycocotools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
               <item name="dagm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="dagm" type="462c0819:PsiDirectoryNode" />
+              <item name="annotations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
@@ -206,7 +261,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -345,7 +399,8 @@
       <workItem from="1557582833050" duration="5769000" />
       <workItem from="1557710848438" duration="13616000" />
       <workItem from="1557725390585" duration="1654000" />
-      <workItem from="1557727599763" duration="6452000" />
+      <workItem from="1557727599763" duration="7743000" />
+      <workItem from="1557800503040" duration="1042000" />
     </task>
     <task id="LOCAL-00001" summary="注释">
       <created>1556172734104</created>
@@ -365,7 +420,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105230000" />
+    <option name="totallyTimeSpent" value="107563000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -380,7 +435,7 @@
     <frame x="57" y="32" width="1863" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.66939443" visible="true" weight="0.24545954" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.66939443" visible="true" weight="0.24821134" />
       <window_info id="Structure" order="1" sideWeight="0.33060557" side_tool="true" weight="0.15685195" />
       <window_info id="Favorites" order="2" sideWeight="0.50161815" side_tool="true" weight="0.25976884" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -394,7 +449,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.328125" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002752" side_tool="true" weight="0.32700893" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49972484" weight="0.32589287" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49972484" weight="0.3247768" />
       <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.27901787" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -453,13 +508,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/coco/PythonAPI/pycocotools/mask.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -596,16 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/coco/PythonAPI/pycocotools/coco.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
-          <folding>
-            <element signature="e#2404#2415#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/demo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -643,21 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding>
-            <element signature="e#281#292#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/dagm/annotations/testdagm2007.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-278229" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/dagm/annotations/traindagm2007.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-212114">
@@ -665,22 +688,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/dagm/annotations/testdagm2007.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagmjson.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        <state relative-caret-position="-630">
+          <caret line="24" column="60" lean-forward="true" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
           <folding>
             <element signature="e#28#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/coco/PythonAPI/pycocotools/mask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pydagmfoo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        <state relative-caret-position="360">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="e#23#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/coco/PythonAPI/pycocotools/coco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+          <folding>
+            <element signature="e#2404#2415#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="412" column="32" lean-forward="true" selection-start-line="412" selection-start-column="32" selection-end-line="412" selection-end-column="32" />
+          <folding>
+            <element signature="e#313#324#0" expanded="true" />
           </folding>
         </state>
       </provider>

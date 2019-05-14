@@ -17,13 +17,13 @@ from pydagmtools import dagmjson
 print("当前cwd: "+os.getcwd())
 print("当前dir: "+os.path.abspath(os.path.dirname(__file__)))
 
-j = dagmjson.DAGMjson("testdagm2007")
+# j = dagmjson.DAGMjson("testdagm2007")
 # j.imgToJson()
 
 
-# a = dagm.DAGM('../annotations/testdev2017foo.json')
-# j = dagmjson.DAGMjson()
-#
+a = dagm.DAGM('../annotations/traindagm2007.json')
+
+
 # json_configs = j.jsonConfigs
 # img_index = 0
 # label_index = 0
