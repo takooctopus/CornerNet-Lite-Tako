@@ -2,18 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b6455ff-cfd2-4ea3-9fcf-6f8060cc40a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/CornerNet-multi_scale.json" beforeDir="false" afterPath="$PROJECT_DIR$/configs/CornerNet-multi_scale.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/CornerNet.json" beforeDir="false" afterPath="$PROJECT_DIR$/configs/CornerNet.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/CornerNet_Saccade.json" beforeDir="false" afterPath="$PROJECT_DIR$/configs/CornerNet_Saccade.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/CornerNet_Squeeze.json" beforeDir="false" afterPath="$PROJECT_DIR$/configs/CornerNet_Squeeze.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/dbs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/dbs/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/models/py_utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/py_utils/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/sample/cornernet_saccade.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/sample/cornernet_saccade.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/dbs/dagm.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/dbs/dagm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/dbs/detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/dbs/detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/detectors.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/detectors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/CornerNet_Saccade.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/CornerNet_Saccade.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/CornerNet_Squeeze.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/CornerNet_Squeeze.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/test/cornernet.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/test/cornernet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/coco/results/instances_val2014_fakebbox100_results.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/coco/results/instances_val2014_fakebbox100_results.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dagm/PythonAPI/dist/pydagmtools-2.0-py3.7-linux-x86_64.egg" beforeDir="false" afterPath="$PROJECT_DIR$/data/dagm/PythonAPI/dist/pydagmtools-2.0-py3.7-linux-x86_64.egg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagmjson.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagmjson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dagm/pydagmfoo.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/dagm/pydagmfoo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_out.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/demo_out.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pydagmfoo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluate.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/traindagm.py" beforeDir="false" afterPath="$PROJECT_DIR$/traindagm.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,10 +52,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/dbs/base.py">
+        <entry file="file://$PROJECT_DIR$/evaluatedagm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+            <state relative-caret-position="150">
+              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/test/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/dbs/dagm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -55,12 +82,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/dbs/dagm.py">
+        <entry file="file://$PROJECT_DIR$/core/models/CornerNet_Saccade.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="173" lean-forward="true" selection-start-line="173" selection-end-line="173" />
+            <state relative-caret-position="255">
+              <caret line="78" column="56" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="56" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,35 +96,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configs/CornerNet_Saccade.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+            <state relative-caret-position="195">
+              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="448">
+              <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/dbs/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="523">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/traindagm.py">
+        <entry file="file://$PROJECT_DIR$/core/dbs/coco.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="296" column="29" selection-start-line="296" selection-start-column="29" selection-end-line="296" selection-end-column="29" />
+            <state relative-caret-position="379">
+              <caret line="82" column="11" lean-forward="true" selection-start-line="82" selection-start-column="11" selection-end-line="82" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/multiprocessing/queues.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="112" selection-start-line="112" selection-end-line="112" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/sample/cornernet_saccade.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11">
-              <caret line="325" lean-forward="true" selection-start-line="325" selection-end-line="325" />
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="174">
+                <caret line="28" column="18" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="18" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -113,36 +158,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>db_inds</find>
-      <find>_detections</find>
-      <find>bbox</find>
-      <find>attentions</find>
-      <find>att_sizes</find>
-      <find>pycocotools</find>
-      <find>segmentation</find>
-      <find>is</find>
-      <find>j</find>
-      <find>j.</find>
-      <find>unicode</find>
-      <find>COCO</find>
-      <find>db_config</find>
-      <find>COCO(</find>
-      <find>_load_dagm_annos</find>
-      <find>sys_config</find>
-      <find>system_config</find>
-      <find>trainval</find>
-      <find>torch.load</find>
-      <find>gpu_id</find>
-      <find>coco</find>
-      <find>print</find>
       <find>500000</find>
       <find>shuffling indices</find>
       <find>training start</find>
       <find>stepsize</find>
       <find>train</find>
-      <find>test</find>
       <find>device</find>
+      <find>加载标签文件进入内存</find>
+      <find>test</find>
+      <find>标签文</find>
+      <find>creating index</find>
+      <find>workers</find>
       <find>val_iter</find>
+      <find>main</find>
+      <find>torch.load</find>
+      <find>chunk_sizes</find>
+      <find>ornerNet_Saccade_500000</find>
+      <find>loadRes</find>
+      <find>showAnns</find>
+      <find>anno</find>
+      <find>10</find>
+      <find>categories</find>
+      <find>80</find>
+      <find>5</find>
+      <find>detector</find>
+      <find>align_corners</find>
+      <find>Upsample</find>
+      <find>te</find>
+      <find>test_split</find>
+      <find>testdev</find>
+      <find>1000</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,12 +198,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/core/dbs/base.py" />
-        <option value="$PROJECT_DIR$/core/dbs/detection.py" />
         <option value="$PROJECT_DIR$/data/coco/annotations/instances_testdev2017.json" />
-        <option value="$PROJECT_DIR$/core/models/CornerNet_Saccade.py" />
         <option value="$PROJECT_DIR$/core/utils/tqdm.py" />
-        <option value="$PROJECT_DIR$/evaluate.py" />
-        <option value="$PROJECT_DIR$/core/nnet/py_factory.py" />
         <option value="$PROJECT_DIR$/core/paths.py" />
         <option value="$PROJECT_DIR$/core/models/CornerNet.py" />
         <option value="$PROJECT_DIR$/core/models/py_utils/_cpools/src/top_pool.cpp" />
@@ -171,8 +212,6 @@
         <option value="$PROJECT_DIR$/data/dagm/PythonAPI/Makefile" />
         <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/_mask.c" />
         <option value="$PROJECT_DIR$/core/dbs/coco.py" />
-        <option value="$PROJECT_DIR$/core/detectors.py" />
-        <option value="$PROJECT_DIR$/core/base.py" />
         <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/mask.py" />
         <option value="$PROJECT_DIR$/data/dagm/.travis.yml" />
         <option value="$PROJECT_DIR$/data/dagm/.gitignore" />
@@ -181,22 +220,32 @@
         <option value="$PROJECT_DIR$/data/dagm/annotations/minival2014foo.json" />
         <option value="$PROJECT_DIR$/data/dagm/PythonAPI/demo.json" />
         <option value="$PROJECT_DIR$/conda_packagelist.txt" />
-        <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagmjson.py" />
-        <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagm.py" />
         <option value="$PROJECT_DIR$/data/dagm/README.md" />
         <option value="$PROJECT_DIR$/pydagmfoo.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/core/models/py_utils/utils.py" />
-        <option value="$PROJECT_DIR$/demo.py" />
         <option value="$PROJECT_DIR$/core/dbs/__init__.py" />
-        <option value="$PROJECT_DIR$/core/config.py" />
-        <option value="$PROJECT_DIR$/configs/CornerNet_Squeeze.json" />
-        <option value="$PROJECT_DIR$/configs/CornerNet-multi_scale.json" />
         <option value="$PROJECT_DIR$/core/sample/cornernet_saccade.py" />
-        <option value="$PROJECT_DIR$/configs/CornerNet_Saccade.json" />
-        <option value="$PROJECT_DIR$/configs/CornerNet.json" />
+        <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagm.py" />
+        <option value="$PROJECT_DIR$/core/nnet/py_factory.py" />
         <option value="$PROJECT_DIR$/core/dbs/dagm.py" />
+        <option value="$PROJECT_DIR$/core/base.py" />
+        <option value="$PROJECT_DIR$/data/coco/results/instances_val2014_fakebbox100_results.json" />
         <option value="$PROJECT_DIR$/traindagm.py" />
+        <option value="$PROJECT_DIR$/core/models/CornerNet_Squeeze.py" />
+        <option value="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagmjson.py" />
+        <option value="$PROJECT_DIR$/core/detectors.py" />
+        <option value="$PROJECT_DIR$/core/test/cornernet.py" />
+        <option value="$PROJECT_DIR$/configs/CornerNet_Squeeze.json" />
+        <option value="$PROJECT_DIR$/data/dagm/pydagmfoo.py" />
+        <option value="$PROJECT_DIR$/core/dbs/detection.py" />
+        <option value="$PROJECT_DIR$/configs/CornerNet.json" />
+        <option value="$PROJECT_DIR$/configs/CornerNet-multi_scale.json" />
+        <option value="$PROJECT_DIR$/core/models/CornerNet_Saccade.py" />
+        <option value="$PROJECT_DIR$/configs/CornerNet_Saccade.json" />
+        <option value="$PROJECT_DIR$/evaluate.py" />
+        <option value="$PROJECT_DIR$/demo.py" />
+        <option value="$PROJECT_DIR$/core/config.py" />
       </list>
     </option>
   </component>
@@ -245,6 +294,27 @@
             <path>
               <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
               <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="cache" type="462c0819:PsiDirectoryNode" />
+              <item name="nnet" type="462c0819:PsiDirectoryNode" />
+              <item name="CornerNet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="cache" type="462c0819:PsiDirectoryNode" />
+              <item name="nnet" type="462c0819:PsiDirectoryNode" />
+              <item name="CornerNet_Saccade" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="cache" type="462c0819:PsiDirectoryNode" />
+              <item name="nnet" type="462c0819:PsiDirectoryNode" />
+              <item name="CornerNet_Squeeze" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
               <item name="configs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -262,7 +332,13 @@
               <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
               <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="nnet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
@@ -274,6 +350,40 @@
               <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
               <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="coco" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="dagm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="dagm" type="462c0819:PsiDirectoryNode" />
+              <item name="annotations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="dagm" type="462c0819:PsiDirectoryNode" />
+              <item name="PythonAPI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CornerNet-Lite" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="dagm" type="462c0819:PsiDirectoryNode" />
+              <item name="PythonAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="pydagmtools" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CornerNet-Lite" type="b2602c69:ProjectViewProjectNode" />
@@ -295,7 +405,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/cache/nnet" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -312,8 +422,8 @@
       <recent name="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/cache/nnet" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/cache/nnet" />
       <recent name="$PROJECT_DIR$/core/dbs" />
       <recent name="$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools" />
       <recent name="$PROJECT_DIR$/data/dagm" />
@@ -380,9 +490,6 @@
       <module name="CornerNet-Lite" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/dagm/PythonAPI" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -434,7 +541,11 @@
       <workItem from="1557725390585" duration="1654000" />
       <workItem from="1557727599763" duration="7743000" />
       <workItem from="1557800503040" duration="2617000" />
-      <workItem from="1557803227344" duration="8674000" />
+      <workItem from="1557803227344" duration="10080000" />
+      <workItem from="1557814196324" duration="6224000" />
+      <workItem from="1557823125236" duration="1276000" />
+      <workItem from="1557871940162" duration="8960000" />
+      <workItem from="1558062663284" duration="6652000" />
     </task>
     <task id="LOCAL-00001" summary="注释">
       <created>1556172734104</created>
@@ -454,7 +565,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117812000" />
+    <option name="totallyTimeSpent" value="142330000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -467,9 +578,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="32" width="1863" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.66939443" visible="true" weight="0.25096312" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.66939443" visible="true" weight="0.26197028" />
       <window_info id="Structure" order="1" sideWeight="0.33060557" side_tool="true" weight="0.15685195" />
       <window_info id="Favorites" order="2" sideWeight="0.50161815" side_tool="true" weight="0.25976884" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="0" weight="0.32924107" />
@@ -513,218 +623,106 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CornerNet_Lite$demo.coverage" NAME="demo Coverage Results" MODIFIED="1557807764927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CornerNet_Lite$demo.coverage" NAME="demo Coverage Results" MODIFIED="1558071461766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/coco/annotations/testdev2017foo.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-840">
-          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/coco/annotations/trainval2014foo.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="278" column="16" selection-start-line="278" selection-start-column="5" selection-end-line="278" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/demo.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret column="2543" selection-start-column="2543" selection-end-column="2543" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/dagm/annotations/traindagm2007.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-212114">
-          <caret column="2334" selection-start-column="2334" selection-end-column="2334" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/dagm/annotations/testdagm2007.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagmjson.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-630">
-          <caret line="24" column="60" lean-forward="true" selection-start-line="24" selection-start-column="60" selection-end-line="24" selection-end-column="60" />
-          <folding>
-            <element signature="e#28#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/coco/PythonAPI/pycocotools/mask.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/coco/PythonAPI/pycocotools/coco.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-          <folding>
-            <element signature="e#2404#2415#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/dagm/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="433">
-            <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/dagm/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="413" column="33" lean-forward="true" selection-start-line="413" selection-start-column="33" selection-end-line="413" selection-end-column="33" />
-          <folding>
-            <element signature="e#313#324#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/models/py_utils/modules.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="312" selection-start-line="312" selection-end-line="312" />
+        <state relative-caret-position="184">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/site-packages/torch/nn/modules/module.py">
+    <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/site-packages/torch/nn/modules/container.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="488" selection-start-line="488" selection-end-line="488" />
+        <state relative-caret-position="192">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/test/cornernet_saccade.py">
+    <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/site-packages/torch/cuda/comm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="322" selection-start-line="322" selection-end-line="322" />
+        <state relative-caret-position="323">
+          <caret line="155" column="14" selection-start-line="155" selection-start-column="14" selection-end-line="155" selection-end-column="14" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Class01_0002.PNG" />
     <entry file="file://$PROJECT_DIR$/demo_out.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/py_utils/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/site-packages/pkg_resources/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/dagm/pydagmfoo.py">
+    <entry file="file://$PROJECT_DIR$/classes.png" />
+    <entry file="file://$PROJECT_DIR$/packages.png" />
+    <entry file="file://$PROJECT_DIR$/cache/nnet/CornerNet_Saccade/CornerNet_Saccade_8000.pkl" />
+    <entry file="file://$PROJECT_DIR$/core/test/cornernet_saccade.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-line="6" selection-end-column="59" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/paths.py">
+    <entry file="file://$PROJECT_DIR$/data/coco/results/instances_val2014_fakebbox100_results.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        <state relative-caret-position="-2624">
+          <caret line="98" column="15" selection-start-line="98" selection-start-column="15" selection-end-line="98" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/dbs/detection.py">
+    <entry file="file://$PROJECT_DIR$/traindagm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+        <state relative-caret-position="174">
+          <caret line="182" column="98" selection-start-line="182" selection-start-column="98" selection-end-line="182" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/CornerNet_Squeeze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="94" column="51" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="51" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cache/nnet/CornerNet_Squeeze/CornerNet_Squeeze_2000.pkl" />
+    <entry file="file://$PROJECT_DIR$/core/nnet/py_factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1056">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="28" column="12" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="12" />
+        <state relative-caret-position="180">
+          <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2346">
-          <caret line="107" column="30" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="30" />
-          <folding>
-            <element signature="e#22#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/demo.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="129">
-            <caret line="127" column="38" selection-start-line="127" selection-start-column="38" selection-end-line="127" selection-end-column="38" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/dbs/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/detectors.py">
+    <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-line="3" selection-end-column="26" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo.jpg">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/data/dagm/annotations/traindagm2007.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret column="220910" selection-start-column="220906" selection-end-column="220910" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/sample/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -733,81 +731,201 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/py_utils/losses.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/dagm/annotations/testdagm2007.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret column="810" selection-start-column="810" selection-end-column="810" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagmjson.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="265" column="52" selection-start-line="265" selection-start-column="52" selection-end-line="265" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/sample/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="131" column="48" selection-start-line="131" selection-start-column="48" selection-end-line="131" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/sample/cornernet_saccade.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="281" column="31" selection-start-line="281" selection-start-column="31" selection-end-line="281" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/coco/annotations/instances_trainval2014.json">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-108490">
+          <caret column="10387" selection-start-column="10387" selection-end-column="10387" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/coco/annotations/instances_testdev2017.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret column="5809" selection-start-column="5809" selection-end-column="5809" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conda_packagelist.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/dagm/PythonAPI/pydagmtools/dagm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3990">
+          <caret line="277" column="15" selection-start-line="277" selection-start-column="8" selection-end-line="277" selection-end-column="15" />
+          <folding>
+            <element signature="e#313#324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/test/cornernet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/site-packages/pycocotools-2.0-py3.7-linux-x86_64.egg/pycocotools/coco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="179" column="11" lean-forward="true" selection-start-line="179" selection-start-column="11" selection-end-line="179" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/coco/PythonAPI/pycocotools/coco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="128" column="17" selection-start-line="128" selection-start-column="8" selection-end-line="128" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/CornerNet_Squeeze.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="47" column="19" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/dagm/pydagmfoo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/dbs/detection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="35" column="47" lean-forward="true" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/CornerNet.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="44" column="21" lean-forward="true" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/CornerNet-multi_scale.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo_out.PNG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/detectors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="45" column="100" selection-start-line="45" selection-start-column="100" selection-end-line="45" selection-end-column="100" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models/py_utils/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="174" column="28" selection-start-line="174" selection-start-column="18" selection-end-line="174" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="34" column="36" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+        <state relative-caret-position="319">
+          <caret line="25" column="15" lean-forward="true" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
           <folding>
             <element signature="e#23#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/py_utils/scatter_gather.py">
+    <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/site-packages/torch/nn/functional.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        <state relative-caret-position="461">
+          <caret line="2440" column="23" lean-forward="true" selection-start-line="2440" selection-start-column="23" selection-end-line="2440" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/site-packages/torch/nn/parallel/_functions.py">
+    <entry file="file://$PROJECT_DIR$/evaluate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
+        <state relative-caret-position="15">
+          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/site-packages/torch/cuda/comm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="141" column="66" lean-forward="true" selection-start-line="141" selection-start-column="66" selection-end-line="141" selection-end-column="66" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="174">
+            <caret line="28" column="18" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="18" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configs/CornerNet-multi_scale.json">
+    <entry file="file://$PROJECT_DIR$/core/dbs/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/CornerNet_Squeeze.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-317">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/dbs/coco.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="67" column="17" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/CornerNet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="523">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/CornerNet_Squeeze.py">
+    <entry file="file://$PROJECT_DIR$/core/dbs/dagm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/nnet/py_factory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="48" column="21" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="21" />
+        <state relative-caret-position="192">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -816,106 +934,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/models/CornerNet_Saccade.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-302">
-          <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
+        <state relative-caret-position="255">
+          <caret line="78" column="56" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="56" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/sample/cornernet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/CornerNet.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/dbs/dagm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="173" lean-forward="true" selection-start-line="173" selection-end-line="173" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/configs/CornerNet_Saccade.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        <state relative-caret-position="195">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/dbs/base.py">
+    <entry file="file://$PROJECT_DIR$/core/test/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/sample/cornernet_saccade.py">
+    <entry file="file://$PROJECT_DIR$/evaluatedagm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret line="325" lean-forward="true" selection-start-line="325" selection-end-line="325" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/multiprocessing/queues.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="112" selection-start-line="112" selection-end-line="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/multiprocessing/connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="582" column="54" lean-forward="true" selection-start-line="582" selection-start-column="54" selection-end-line="582" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/models/py_utils/data_parallel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/CornerNet_Lite/lib/python3.7/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="864" selection-start-line="864" selection-end-line="864" />
+        <state relative-caret-position="150">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="33" column="47" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="47" />
+        <state relative-caret-position="448">
+          <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/traindagm.py">
+    <entry file="file://$PROJECT_DIR$/core/dbs/coco.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="296" column="29" selection-start-line="296" selection-start-column="29" selection-end-line="296" selection-end-column="29" />
+        <state relative-caret-position="379">
+          <caret line="82" column="11" lean-forward="true" selection-start-line="82" selection-start-column="11" selection-end-line="82" selection-end-column="11" />
         </state>
       </provider>
     </entry>

@@ -23,7 +23,7 @@ class DAGM(DETECTION):
         ], dtype=np.float32)
 
         self._dagm_cls_ids = [
-            1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
         ]
 
         self._dagm_cls_names = [
@@ -116,7 +116,7 @@ class DAGM(DETECTION):
         # print("----------------------------------------------------------")
         db_ind = self._db_inds[ind]
         file_name = self._image_ids[db_ind]
-        cat_name = file_name.split("_",1)[0]
+        cat_name = file_name.split("_", 1)[0]
         # print(cat_name)
 
         # breakpoint()

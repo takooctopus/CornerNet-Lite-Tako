@@ -31,7 +31,7 @@ class SystemConfig(object):
         # Split
         self._configs["train_split"] = "training"
         self._configs["val_split"]   = "validation"
-        self._configs["test_split"]  = "testdev"
+        self._configs["test_split"]  = "testdagm"
 
         # Rng
         self._configs["data_rng"] = np.random.RandomState(123)

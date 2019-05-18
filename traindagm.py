@@ -96,6 +96,7 @@ def terminate_tasks(tasks):
 
 # 训练函数（训练数据，验证数据，系统参数，模型，参数）
 def train(training_dbs, validation_db, system_config, model, args):
+
     # reading arguments from command
     start_iter = args.start_iter
     distributed = args.distributed
@@ -118,6 +119,7 @@ def train(training_dbs, validation_db, system_config, model, args):
 
     print("Process {}: building model...".format(rank))
     nnet = NetworkFactory(system_config, model, distributed=distributed, gpu=gpu)
+
     if initialize:
         nnet.save_params(0)
         exit(0)
@@ -223,7 +225,6 @@ def main(gpu, ngpus_per_node, args):
         args.rank = args.rank * ngpus_per_node + gpu
         dist.init_process_group(backend=args.dist_backend, init_method=args.dist_url,
                                 world_size=args.world_size, rank=args.rank)
-
     rank = args.rank
 
     # 读取配置文件

@@ -12,7 +12,7 @@ class DETECTION(BASE):
         # Configs for training
 
         # 训练时参数[类别、一般的尺度、最小尺度、最大尺度、步长]
-        self._configs["categories"]      = 80
+        self._configs["categories"]      = 10
         self._configs["rand_scales"]     = [1]
         self._configs["rand_scale_min"]  = 0.8
         self._configs["rand_scale_max"]  = 1.4

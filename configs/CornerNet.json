@@ -1,7 +1,7 @@
 {
     "system": {
         "dataset": "DAGM",
-        "batch_size": 49,
+        "batch_size": 2,
         "sampling_function": "cornernet",
 
         "train_split": "traindagm",
@@ -16,10 +16,10 @@
         "prefetch_size": 5,
 
         "max_iter": 5000,
-        "stepsize": 200,
-        "snapshot": 100,
+        "stepsize": 800,
+        "snapshot": 400,
 
-        "chunk_sizes": [4, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+        "chunk_sizes": [2],
 
         "data_dir": "./data"
     },
@@ -43,7 +43,7 @@
         "test_scales": [1],
 
         "top_k": 100,
-        "categories": 80,
+        "categories": 10,
         "ae_threshold": 0.5,
         "nms_threshold": 0.5,
 
