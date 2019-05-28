@@ -1,7 +1,13 @@
+import os
+import sys
+
 import cv2
 import numpy as np
 
+
 def draw_bboxes(image, bboxes, font_size=0.5, thresh=0.5, colors=None):
+    print("\033[4;32m " + "现在位置:{}/{}/.{}".format(os.getcwd(), os.path.basename(__file__),
+                                                  sys._getframe().f_code.co_name) + "\033[0m")
     """Draws bounding boxes on an image.
 
     Args:
@@ -25,12 +31,13 @@ def draw_bboxes(image, bboxes, font_size=0.5, thresh=0.5, colors=None):
     for cat_name in bboxes:
         # 只要大于阈值就行
         keep_inds = bboxes[cat_name][:, -1] > thresh
+        print("\033[0;36m " + "类别为:[{}]的bbox经过阈值处理后是否保留:".format(cat_name) + "\033[0m" + "{}".format(keep_inds))
         # 这边是类型的尺寸
-        cat_size  = cv2.getTextSize(cat_name, cv2.FONT_HERSHEY_SIMPLEX, font_size, 2)[0]
+        cat_size = cv2.getTextSize(cat_name, cv2.FONT_HERSHEY_SIMPLEX, font_size, 2)[0]
 
         # 创建随机颜色
         if colors is None:
-            color = np.random.random((3, )) * 0.6 + 0.4
+            color = np.random.random((3,)) * 0.6 + 0.4
             color = (color * 255).astype(np.int32).tolist()
         else:
             color = colors[cat_name]
@@ -39,27 +46,27 @@ def draw_bboxes(image, bboxes, font_size=0.5, thresh=0.5, colors=None):
             bbox = bbox[0:4].astype(np.int32)
             if bbox[1] - cat_size[1] - 2 < 0:
                 cv2.rectangle(image,
-                    (bbox[0], bbox[1] + 2),
-                    (bbox[0] + cat_size[0], bbox[1] + cat_size[1] + 2),
-                    color, -1
-                )
+                              (bbox[0], bbox[1] + 2),
+                              (bbox[0] + cat_size[0], bbox[1] + cat_size[1] + 2),
+                              color, -1
+                              )
                 cv2.putText(image, cat_name,
-                    (bbox[0], bbox[1] + cat_size[1] + 2),
-                    cv2.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 0), thickness=1
-                )
+                            (bbox[0], bbox[1] + cat_size[1] + 2),
+                            cv2.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 0), thickness=1
+                            )
             else:
                 cv2.rectangle(image,
-                    (bbox[0], bbox[1] - cat_size[1] - 2),
-                    (bbox[0] + cat_size[0], bbox[1] - 2),
-                    color, -1
-                )
+                              (bbox[0], bbox[1] - cat_size[1] - 2),
+                              (bbox[0] + cat_size[0], bbox[1] - 2),
+                              color, -1
+                              )
                 cv2.putText(image, cat_name,
-                    (bbox[0], bbox[1] - 2),
-                    cv2.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 0), thickness=1
-                )
+                            (bbox[0], bbox[1] - 2),
+                            cv2.FONT_HERSHEY_SIMPLEX, font_size, (0, 0, 0), thickness=1
+                            )
             cv2.rectangle(image,
-                (bbox[0], bbox[1]),
-                (bbox[2], bbox[3]),
-                color, 2
-            )
+                          (bbox[0], bbox[1]),
+                          (bbox[0] + bbox[2], bbox[1] + bbox[3]),
+                          color, 2
+                          )
     return image

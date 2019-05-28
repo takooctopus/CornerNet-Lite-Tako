@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import sys
 import json
 import torch
 import numpy as np
@@ -96,6 +97,8 @@ def terminate_tasks(tasks):
 
 # 训练函数（训练数据，验证数据，系统参数，模型，参数）
 def train(training_dbs, validation_db, system_config, model, args):
+    print("\033[0;33m " + "现在位置:{}/{}/.{}".format(os.getcwd(), os.path.basename(__file__),
+                                                  sys._getframe().f_code.co_name) + "\033[0m")
 
     # reading arguments from command
     start_iter = args.start_iter
@@ -117,7 +120,7 @@ def train(training_dbs, validation_db, system_config, model, args):
     decay_rate = system_config.decay_rate
     stepsize = system_config.stepsize
 
-    print("Process {}: building model...".format(rank))
+    print("\033[1;36m " + "Process {}: building model(生成模型中)...".format(rank) + "\033[0m")
     nnet = NetworkFactory(system_config, model, distributed=distributed, gpu=gpu)
 
     if initialize:
@@ -173,7 +176,8 @@ def train(training_dbs, validation_db, system_config, model, args):
 
     # 训练模型
     if rank == 0:
-        print("training start...")
+        print("\033[1;36m " + "training start(训练开始)...".format(rank) + "\033[0m")
+
     nnet.cuda()
     nnet.train_mode()
 
@@ -186,7 +190,9 @@ def train(training_dbs, validation_db, system_config, model, args):
 
             # 如果设置了display的步长，我们在步长整数倍时展示损失函数的值
             if display and iteration % display == 0:
-                print("Process {}: training loss at iteration {}: {}".format(rank, iteration, training_loss.item()))
+                print(
+                    "\033[1;36m " + "Process(进程){}: iteration(迭代数) [{}]时的training loss(损失函数值):".format(
+                        rank, iteration) + "\033[0m" + "{}".format(training_loss.item()))
             del training_loss
 
             # 如果设置了变量迭代器步长[这边是验证集了]
@@ -194,7 +200,9 @@ def train(training_dbs, validation_db, system_config, model, args):
                 nnet.eval_mode()
                 validation = pinned_validation_queue.get(block=True)
                 validation_loss = nnet.validate(**validation)
-                print("Process {}: validation loss at iteration {}: {}".format(rank, iteration, validation_loss.item()))
+                print("\033[1;33m " + "Process {}:".format(
+                    rank) + "\033[0m" + "\033[1;36m " + "validation loss at iteration {}:".format(
+                    iteration) + "\033[0m" + "{}".format(validation_loss.item()))
                 nnet.train_mode()
 
             # 快照步长
@@ -204,6 +212,7 @@ def train(training_dbs, validation_db, system_config, model, args):
             # 学习率更新步长
             if iteration % stepsize == 0:
                 learning_rate /= decay_rate
+                print("\033[1;35m " + "此时学习率更新为:" + "\033[0m" + "{}".format(learning_rate))
                 nnet.set_lr(learning_rate)
 
     # sending signal to kill the thread
@@ -287,8 +296,6 @@ if __name__ == "__main__":
 
     # 每个节点上的gpu
     ngpus_per_node = torch.cuda.device_count()
-
-
 
     # torch 下分布式运行
     if distributed:

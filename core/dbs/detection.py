@@ -38,6 +38,7 @@ class DETECTION(BASE):
         self._configs["nms_algorithm"]   = "exp_soft_nms"
         self._configs["weight_exp"]      = 8
         self._configs["merge_bbox"]      = False
+        # self._configs["merge_bbox"]      = True
 
         self._configs["data_aug"]        = True
         self._configs["lighting"]        = True

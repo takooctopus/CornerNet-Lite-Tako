@@ -15,9 +15,9 @@
         "opt_algo": "adam",
         "prefetch_size": 5,
 
-        "max_iter": 1000,
-        "stepsize": 200,
-        "snapshot": 200,
+        "max_iter": 500000,
+        "stepsize": 45000,
+        "snapshot": 5000,
 
         "chunk_sizes": [4],
 

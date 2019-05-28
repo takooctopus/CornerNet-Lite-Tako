@@ -60,7 +60,8 @@ class NetworkFactory(object):
             for x in params.size():
                 num_params *= x
             total_params += num_params
-        print("total parameters: {}".format(total_params))
+        print("\033[0;35m " + "total parameters: {}".format(
+            total_params) + "\033[0m")
 
         if system_config.opt_algo == "adam":
             self.optimizer = torch.optim.Adam(
@@ -128,7 +129,7 @@ class NetworkFactory(object):
 
     def load_params(self, iteration):
         cache_file = self.system_config.snapshot_file.format(iteration)
-        print("loading model from {}".format(cache_file))
+        print("\033[0;35m " + "loading model from(加载已得到的缓存文件):{}".format(cache_file) + "\033[0m")
         with open(cache_file, "rb") as f:
             params = torch.load(f)
             self.model.load_state_dict(params)

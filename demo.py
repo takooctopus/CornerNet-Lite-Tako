@@ -15,19 +15,6 @@ from pydagmtools import dagmjson
 
 from core.dbs.dagm import DAGM
 
-print("当前cwd: " + os.getcwd())
-print("当前dir: " + os.path.abspath(os.path.dirname(__file__)))
-
-detector = CornerNet_Saccade()
-# detector = CornerNet_Squeeze()
-image = cv2.imread("/media/takooctopus/DATA/Code/pythonCode/CornerNet-Lite/data/dagm/images/traindagm2007/Class01/Class01_0616.PNG")
-
-# cv2.imshow("asd", image)
-# cv2.waitKey()
-
-bboxes = detector(image)
-image = draw_bboxes(image, bboxes)
-cv2.imwrite("demo_out.PNG", image)
 
 
 # cfg_path = get_file_path("..", "configs", "CornerNet_Saccade.json")
@@ -51,4 +38,7 @@ cv2.imwrite("demo_out.PNG", image)
 # b = DAGM(cfg_path)
 #
 # cornernet = load_nnet(sys_cfg, model())
+
+a = dagm.DAGM()
+a.loadRes()
 

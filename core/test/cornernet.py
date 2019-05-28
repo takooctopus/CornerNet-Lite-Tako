@@ -1,4 +1,5 @@
 import os
+import sys
 import cv2
 import json
 import numpy as np
@@ -28,17 +29,20 @@ def decode(nnet, images, K, ae_threshold=0.5, kernel=3, num_dets=1000):
 
 
 def cornernet(db, nnet, result_dir, debug=False, decode_func=decode):
+    print("\033[0;33m " + "现在位置:{}/{}/.{}".format(os.getcwd(), os.path.basename(__file__),
+                                                  sys._getframe().f_code.co_name) + "\033[0m")
     debug_dir = os.path.join(result_dir, "debug")
+    print("\033[0;36m " + "debug_dir(调试用文件夹):{}".format(debug_dir) + "\033[0m")
     if not os.path.exists(debug_dir):
         os.makedirs(debug_dir)
 
-    if db.split != "trainval2014":
-        db_inds = db.db_inds[:100] if debug else db.db_inds
-    else:
-        db_inds = db.db_inds[:100] if debug else db.db_inds[:5000]
+    db_inds = db.db_inds[:1000] if debug else db.db_inds[:1000]
+    print("\033[0;36m " + "db_inds(我们的数据集index):" + "\033[0m")
+    print(db_inds)
 
     num_images = db_inds.size
     categories = db.configs["categories"]
+    print("\033[0;36m " + "categories(类别):" + "\033[0m" + "{}".format(categories))
 
     timer = Timer()
     top_bboxes = {}
@@ -50,28 +54,51 @@ def cornernet(db, nnet, result_dir, debug=False, decode_func=decode):
         image = cv2.imread(image_path)
 
         timer.tic()
+        print("\033[0;36m " + "image_id(图片id):" + "\033[0m" + "{}".format(image_id))
+        print("\033[0;36m " + "image_path(图片路径):" + "\033[0m" + "{}".format(image_path))
         top_bboxes[image_id] = cornernet_inference(db, nnet, image)
         timer.toc()
 
         if debug:
+            print("\033[4;31m " + "现在在debug模式:" + "\033[0m" + "{}".format("请注意查看"))
             image_path = db.image_path(db_ind)
+            print("\033[4;31m " + "正在操作图片:" + "\033[0m" + "{}".format(image_path))
             image = cv2.imread(image_path)
             bboxes = {
                 db.cls2name(j): top_bboxes[image_id][j]
                 for j in range(1, categories + 1)
             }
-            image = draw_bboxes(image, bboxes)
+            # print(bboxes)
+            # print("\033[4;31m " + "生成BorderBox:" + "\033[0m" + "{}".format(bboxes))
+            print("\033[4;31m " + "正在生成边框...:" + "\033[0m" + "{}".format("跳转draw_bboxes()函数"))
+            for key in bboxes:
+                if len(bboxes[key]):
+                    list_bbox = bboxes[key][:, -1].tolist()
+                    # print(list_bbox)
+                    list_max = max(list_bbox)
+                    # print(list_max)
+                    ind_max = list_bbox.index(list_max)
+                    # print(ind_max)
+                    # print(bboxes[key][ind_max])
+                    bboxes[key] = np.array([bboxes[key][ind_max]])
+            image = draw_bboxes(image, bboxes, thresh=0.3)
+            # breakpoint()
             debug_file = os.path.join(debug_dir, "{}.jpg".format(db_ind))
             cv2.imwrite(debug_file, image)
-    print('average time: {}'.format(timer.average_time))
+
+    print("\033[0;36m " + "average time(平均用时):" + "\033[0m" + "{}".format(timer.average_time))
 
     result_json = os.path.join(result_dir, "results.json")
-    detections = db.convert_to_coco(top_bboxes)
+    detections = db.convert_to_dagm(top_bboxes)
     with open(result_json, "w") as f:
         json.dump(detections, f)
-
+    # class_ids由于从1开始，要加1
     cls_ids = list(range(1, categories + 1))
     image_ids = [db.image_ids(ind) for ind in db_inds]
+    print("\033[0;36m " + "cls_ids(我们的类别ids):" + "\033[0m")
+    print(cls_ids)
+    print("\033[0;36m " + "image_ids(我们的图片ids):" + "\033[0m")
+    print(image_ids)
     db.evaluate(result_json, cls_ids, image_ids)
     return 0
 
@@ -107,6 +134,7 @@ def cornernet_inference(db, nnet, image, decode_func=decode):
     im_std = torch.cuda.FloatTensor(db.std).reshape(1, 3, 1, 1)
 
     detections = []
+    # 默认是比例为1
     for scale in scales:
         new_height = int(height * scale)
         new_width = int(width * scale)
@@ -177,4 +205,6 @@ def cornernet_inference(db, nnet, image, decode_func=decode):
         for j in range(1, categories + 1):
             keep_inds = (top_bboxes[j][:, -1] >= thresh)
             top_bboxes[j] = top_bboxes[j][keep_inds]
+
+    # breakpoint()
     return top_bboxes

@@ -43,7 +43,7 @@ class CornerNet_Saccade(Base):
         from .models.CornerNet_Saccade import model
 
         cfg_path = get_file_path("..", "configs", "CornerNet_Saccade.json")
-        model_path = get_file_path("..", "cache", "nnet", "CornerNet_Saccade", "CornerNet_Saccade_8000.pkl")
+        model_path = get_file_path("..", "cache", "nnet", "CornerNet_Saccade", "CornerNet_Saccade_200.pkl")
 
         cfg_sys, cfg_db = load_cfg(cfg_path)
         sys_cfg = SystemConfig().update_config(cfg_sys)

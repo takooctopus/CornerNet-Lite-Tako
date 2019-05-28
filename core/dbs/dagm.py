@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import numpy as np
 
@@ -142,6 +143,9 @@ class DAGM(DETECTION):
         return float("{:.2f}".format(x))
 
     def convert_to_dagm(self, all_bboxes):
+        print("\033[0;33m " + "现在位置:{}/{}/.{}".format(os.getcwd(), os.path.basename(__file__),
+                                                      sys._getframe().f_code.co_name) + "\033[0m")
+
         detections = []
         for image_id in all_bboxes:
             dagm_id = self._eval_ids[image_id]
@@ -160,12 +164,14 @@ class DAGM(DETECTION):
                         "bbox": bbox,
                         "score": float("{:.2f}".format(score))
                     }
-
                     detections.append(detection)
         return detections
 
     def evaluate(self, result_json, cls_ids, image_ids):
         from pydagmtools.dagmeval import DAGMeval
+
+        print("\033[0;33m " + "现在位置:{}/{}/.{}".format(os.getcwd(), os.path.basename(__file__),
+                                                      sys._getframe().f_code.co_name) + "\033[0m")
 
         if self._split == "testdagm":
             return None
@@ -175,7 +181,15 @@ class DAGM(DETECTION):
         eval_ids = [self._eval_ids[image_id] for image_id in image_ids]
         cat_ids = [self._cls2dagm[cls_id] for cls_id in cls_ids]
 
+        print("\033[0;36m " + "eval_ids():" + "\033[0m")
+        print(eval_ids)
+        print("\033[0;36m " + "cat_ids(类别ids):" + "\033[0m")
+        print(cat_ids)
+
         dagm_dets = dagm.loadRes(result_json)
+        print("\033[0;36m " + "dagm_dets(太大不输出):" + "\033[0m")
+        print(dagm_dets)
+
         dagm_eval = DAGMeval(dagm, dagm_dets, "bbox")
         dagm_eval.params.imgIds = eval_ids
         dagm_eval.params.catIds = cat_ids

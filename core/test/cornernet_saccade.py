@@ -279,7 +279,8 @@ def cornernet_saccade(db, nnet, result_dir, debug=False, decode_func=batch_decod
     print('average time: {}'.format(timer.average_time))
 
     result_json = os.path.join(result_dir, "results.json")
-    detections  = db.convert_to_coco(top_bboxes)
+    # detections  = db.convert_to_coco(top_bboxes)
+    detections  = db.convert_to_dagm(top_bboxes)
     with open(result_json, "w") as f:
         json.dump(detections, f)
 

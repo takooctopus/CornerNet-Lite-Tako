@@ -1,10 +1,13 @@
 #!/usr/bin/env python
+import sys
 import os
 import json
 import torch
 import pprint
 import argparse
 import importlib
+
+import visdom
 
 from core.dbs import datasets
 from core.test import test_func
@@ -39,11 +42,17 @@ def make_dirs(directories):
 
 # 测试函数
 def test(db, system_config, model, args):
+    print("\033[0;35;46m" + "{}".format(" ") * 100 + "\033[0m")
+    print("\033[0;33m " + "现在位置:{}/{}/.{}".format(os.getcwd(), os.path.basename(__file__),
+                                               sys._getframe().f_code.co_name) + "\033[0m")
     split = args.split
     testiter = args.testiter
     debug = args.debug
     suffix = args.suffix
 
+    print("\033[0;36m " + "{}".format("测试用的配置参数") + "\033[0m")
+    print("\033[1;36m " + "split: {}, testiter:{}, debug:{}, suffix:{}".format(split, testiter, debug,
+                                                                               suffix) + "\033[0m")
     # 输出的文件夹result_dir+testiter+split
     result_dir = system_config.result_dir
     result_dir = os.path.join(result_dir, str(testiter), split)
@@ -54,15 +63,17 @@ def test(db, system_config, model, args):
 
     # 创建文件夹
     make_dirs([result_dir])
+    print("\033[1;36m " + "result_dir:{}".format(result_dir) + "\033[0m")
 
     # 赋值test_iter 如果没有传入就用预设值
     test_iter = system_config.max_iter if testiter is None else testiter
-    print("loading parameters at iteration: {}".format(test_iter))
+    print("\033[1;36m " + "loading parameters at iteration(在迭代次数为test_iter的缓存文件中加载参数): " + "\033[0m" + "{}".format(
+        test_iter))
 
     # 构建神经网络
-    print("building neural network...")
+    print("\033[0;36m " + "{}".format("building neural network(创建神经网络)...") + "\033[0m")
     nnet = NetworkFactory(system_config, model)
-    print("loading parameters...")
+    print("\033[0;36m " + "{}".format("loading parameters(加载参数)...") + "\033[0m")
     nnet.load_params(test_iter)
 
     nnet.cuda()
@@ -76,7 +87,7 @@ def main(args):
         cfg_file = os.path.join("./configs", args.cfg_file + ".json")
     else:
         cfg_file = os.path.join("./configs", args.cfg_file + "-{}.json".format(args.suffix))
-    print("cfg_file: {}".format(cfg_file))
+    print("\033[1;36m cfg_file(模型配置文件): \033[0m {} ".format(cfg_file))
 
     # 使用json.load读取json配置文件
     with open(cfg_file, "r") as f:
@@ -97,21 +108,25 @@ def main(args):
     test_split = system_config.test_split
 
     # 默认使用的是validation的split分割
+    # print(train_split)
+    # print(args.split)
     split = {
-        "training": train_split,
-        "validation": val_split,
+        "traindagm": train_split,
+        "testdagm": val_split,
         "testing": test_split
     }[args.split]
 
-    print("loading all datasets...")
+    print("\033[0;36m loading all datasets(加载所有数据集中)... \033[0m ")
     dataset = system_config.dataset
-    print("split: {}".format(split))
+    print("\033[1;36m split(使用分割): \033[0m {}".format(split))
     testing_db = datasets[dataset](config["db"], split=split, sys_config=system_config)
 
-    print("system config...")
+    print("\033[1;36m 生成数据模型: \033[0m {}".format(testing_db))
+
+    print("\033[0;36m system config(系统配置)...\033[0m ")
     pprint.pprint(system_config.full)
 
-    print("db config...")
+    print("\033[0;36m db config(数据集配置)...\033[0m ")
     pprint.pprint(testing_db.configs)
 
     test(testing_db, system_config, model, args)
